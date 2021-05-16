@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Product detail {% endblock %}
+
+{% block content %}
+
+<div class="card-group m-4">
+	<div class="card">
+		<img src="{{product_detail.img.url}}" class="card-img-top" alt="...">
+		<div class="card-body">
+			<h5 class="card-title">{{product_detail.category}}</h5>
+			<h5 class="card-title">{{product_detail.name}}</h5>
+			<h5 class="card-title">$ {{product_detail.price}}</h5>
+			<p class="card-text">{{product_detail.description}}</p>
+		</div>
+		<div class="card-body">
+			<p><i class="fas fa-user"></i> {{product_detail.author}}</p>
+			<p><i class="fas fa-phone-alt"></i>{{product_detail.phone}}</p>
+			<p><i class="fas fa-globe"></i> {{product_detail.region}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text"><i class="far fa-clock"></i> {{product_detail.published}}</small>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col m-2 form-control">
+			<h4>My posts</h4>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Image</th>
+						<th scope="col">Category</th>
+						<th scope="col">Name</th>
+						<th scope="col">Price</th>
+						<th scope="col">Edit</th>
+						<th scope="col">Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for post in post %}
+					<tr>
+						<th scope="row"><img src="{{post.img.url}}" style="width: 50px; height: 50px;"></th>
+						<td>{{post.category}}</td>
+						<td>{{post.name}}</td>
+						<td>$ - {{post.price}}</td>
+						<td><a class="btn btn-warning" href="{% url 'edit_post' post.id %}">Edit</a></td>
+						<td><a class="btn btn-danger" href="{% url 'delete_post' post.id %}">Delete</a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock %}

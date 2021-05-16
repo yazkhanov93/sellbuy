@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4 m-2">
+	{% for product in product %}
+	<a href="/product_detail/{{product.id}}" class="col text-dark nav-link m-2" style="border-radius: 10px; border: 1px solid #696969; width: 20rem;">
+		<div class="card h-100">
+			<img src="{{product.img.url}}" class="card-img-top" alt="..." height="200">
+			<div class="card-body">
+				<h5 class="card-title">{{product.category}}</h5>
+				<p class="card-text">$ {{product.price}}</p>
+				<p class="card-text"><i class="fas fa-globe"></i> {{product.region}}</p>
+			</div>
+			<div class="card-footer bg-dark">
+				<small class="text-light bg-dark"><i class="far fa-clock"></i> {{product.published}}</small>
+			</div>
+		</div>
+	</a>
+	{% endfor %}
+</div>
+
+{% endblock %}

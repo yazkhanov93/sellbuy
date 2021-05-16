@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<form class="form-control row m-4 d-flex justify-content-middle" method="post" enctype="multipart/form-data" style="width: 40rem;">
+	{% csrf_token %}
+	<h4>Add Product</h4>
+	{{form.category.label}}{{form.category}}
+	{{form.name.label}}{{form.name}}
+	<span class="mb-2"></span>
+    {{form.img}}
+    {{form.price.label}}{{form.price}}
+    {{form.description.label}}{{form.description}}
+    <input type="hidden" name="author" value="{{request.user.id}}">
+    {{form.phone.label}}{{form.phone}}
+    {{form.region.label}}{{form.region}}
+	<input type="submit" class="btn btn-outline-success mt-2" name="" value="Upload">
+	{{form.errors}}
+</form>
+
+{% endblock %}
